@@ -1,29 +1,23 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+	<div id="app">
+		<router-view/>
+	</div>
 </template>
-
-<style lang="less">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+<style>
+	@import "./assets/less/normalize.less"
 </style>
+<script>
+	export default{
+		mounted(){
+			var htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+			var htmlDom = document.getElementsByTagName("html")[0];
+			if(htmlWidth > 750) htmlWidth = 750;
+			htmlDom.style.fontSize = htmlWidth / 10 + "px";
+			window.addEventListener("resize", function () {
+				var htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+				if(htmlWidth > 750) htmlWidth = 750;
+				htmlDom.style.fontSize = htmlWidth / 10 + "px";
+			});    
+		}
+	}
+</script>
