@@ -3,7 +3,7 @@
 		<div class="warpper">
 			<h2>客户答谢尊享赠金</h2>
 			<div class="box">
-				<h3>{{Math.round((countD/110) * 100)}}<span>%</span></h3>
+				<h3>{{Math.round((countD/110) * 100) > 100 ? 100 : Math.round((countD/110) * 100)}}<span>%</span></h3>
 			</div>
 		</div>
 
@@ -49,6 +49,7 @@
 		position: absolute;
 		left: 0;
 		top: 0;
+		overflow: hidden;
 		background-color:#f83138;
 		.background{
 			position: absolute;
