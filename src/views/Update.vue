@@ -3,7 +3,9 @@
 		<span>当前数量：{{countD}}/110人</span><br><br>
 		<button v-if="loading">加载中</button>
 
-		<button @click="add" v-else>增加人数（人数增加一个）</button>
+		<button @click="add(1)" v-else>增加人数（人数增加1个）</button><br><br>
+		<button @click="add(2)" >增加人数（人数增加2个）</button><br><br>
+		<button @click="add(3)" >增加人数（人数增加3个）</button>
 		<br><br>
 		<!-- <button @click="start">开始活动</button>
 		<button @click="stop">停止活动</button> -->
@@ -98,8 +100,8 @@
 				})
 			},
 
-			add(){
-				this.ajax("http://www.goldennz.com/api/v1/add" , () => {
+			add(count){
+				this.ajax("http://www.goldennz.com/api/v1/add?count=" + count , () => {
 					this.update();
 				})
 				

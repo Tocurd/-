@@ -53,6 +53,7 @@
 		background:linear-gradient(90deg,rgba(244,148,54,1) 0%,rgba(241,30,38,1) 100%);
 		box-shadow:0px -10px 30px 0px rgba(126,28,8,0.3);
 		color:#fff;
+		z-index:100;
 		text-align: center;
 	}
 	.warpper{
@@ -73,8 +74,9 @@
 			outline: none;
 		}
 		.popup{
-			position: fixed;
+			position: absolute;
 			width: 100%;
+			z-index: 200;
 			height: 100%;
 			top: 0;
 			left: 0;
@@ -84,6 +86,7 @@
 				width: 100%;
 				height: 100%;
 				left: 0;
+				z-index: 200;
 				background-color: rgba(0,0,0,0.7);
 			}
 			.popup-main{
@@ -199,6 +202,11 @@ export default {
 			name : "",
 			wechat : "",
 			loading : false,
+		}
+	},
+	watch:{
+		show(){
+			document.getElementsByTagName("body")[0].setAttribute("class" , this.show ? "scroll" : "")
 		}
 	},
 	methods : {
